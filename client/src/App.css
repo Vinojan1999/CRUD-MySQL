@@ -1,0 +1,49 @@
+.App {
+    text-align: center;
+}
+
+.app__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app__form div {
+    width: 60%;
+    margin: 1rem;
+    font-size: 1.2rem;
+    text-align: left;
+    font-family: sans-serif;
+}
+
+.app__form div input {
+    width: 100%;
+    height: 50px;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border-style: none;
+    border: 1px solid black;
+    background-color: aliceblue;
+}
+
+.app__form button {
+    height: 40px;
+    width: 200px;
+    margin: 1rem;
+    border-style: none;
+    border-radius: 10px;
+    background-color: white;
+    color: blue;
+    border: 2px solid blue;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.app__form button:hover {
+    background-color: blue;
+    color: white;
+}
