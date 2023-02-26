@@ -12,23 +12,32 @@ function App() {
       .then((response) => {
         // console.log(response.data);
         setMovieReviewList(response.data);
-      })
-  })
+      });
+  }, []);
 
   const submitReview = () => {
+
     Axios.post('http://localhost:3001/api/insert', {
       movieName: movieName, 
       movieReview: review,
-    }).then(() => {
-      alert("Successful Insert");
     });
+
+    // Set the movie list
+    setMovieReviewList([
+      ...movieReviewList,
+      { movieName: movieName, movieReview: review }
+    ]);
   }; 
+
+  const deleteReview = (movie) => {
+    Axios.delete(`http://localhost:3001/api/delete/${movie}`);
+  }
 
   return (
     <div className="App">
       <h1>CRUD Application</h1>
       <div className='app__form'>
-        <div>
+        <div className='app__input'>
           <lable>Movie Name:</lable>
           <input 
             type='text' 
@@ -38,7 +47,7 @@ function App() {
             }}
           />
         </div>
-        <div>
+        <div className='app__input'>
           <lable>Review:</lable>
           <input 
             type='text' 
@@ -48,16 +57,24 @@ function App() {
             }}
           />
         </div>
-        <button onClick={submitReview}>Submit</button>
+        <button className='submit-btn' onClick={submitReview}>Submit</button>
 
-        {movieReviewList.map((value) => {
-          return (
-            <div>
-              <h3>Movie Name: {value.movieName}</h3>
-              <h4>Review: {value.movieReview}</h4>
-            </div>
-          )
-        })}
+        <div className='app__card'>
+          {movieReviewList.map((value) => {
+            return (
+              <div className='app__cards'>
+                <h3>{value.movieName}</h3>
+                <p>Review: {value.movieReview}</p>
+
+                <div>
+                  <input className='update-input' id='updateInput' type='text' />
+                  <button className='delete-btn'>Edit</button>
+                  <button onClick={() => {deleteReview(value.movieName)}} className='delete-btn'>Delete</button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
 
       </div>
     </div>

@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.app__form div {
+.app__form .app__input {
     width: 60%;
     margin: 1rem;
     font-size: 1.2rem;
@@ -17,7 +17,7 @@
     font-family: sans-serif;
 }
 
-.app__form div input {
+.app__form .app__input input {
     width: 100%;
     height: 50px;
     margin-top: 0.5rem;
@@ -28,7 +28,7 @@
     background-color: aliceblue;
 }
 
-.app__form button {
+.app__form .submit-btn {
     height: 40px;
     width: 200px;
     margin: 1rem;
@@ -43,7 +43,46 @@
     cursor: pointer;
 }
 
-.app__form button:hover {
+.app__form .submit-btn:hover {
     background-color: blue;
     color: white;
+}
+
+.app__card {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app__card .app__cards {
+    width: 50%;
+    background-color: aquamarine;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+.app__card .app__cards .update-input {
+    height: 1.9rem;
+    margin-right: 1rem;
+}
+
+.app__card .app__cards h3, .app__card .app__cards p {
+    margin: 0;
+}
+.app__card .app__cards p {
+    margin-top: 0.8rem;
+}
+
+.app__card .app__cards .delete-btn {
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
 }

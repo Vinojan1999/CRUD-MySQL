@@ -22,7 +22,7 @@ app.get('/api/get', (req, res) => {
         // console.log(result);
         res.send(result);       // to show in browser
     });
-})
+});
 
 app.post('/api/insert', (req, res) => {
 
@@ -33,6 +33,22 @@ app.post('/api/insert', (req, res) => {
     db.query(sqlInsert, [movieName, movieReview], (err, result) => {
         console.log(err);
     });
+});
+
+app.delete('/api/delete/:movieName', (req, res) => {
+    const name = req.params.movieName;      // Using params for, we are taking the movieName as like a ID. 
+    const sqlDelete = "DELETE FROM movie_reviews WHERE movieName = ?;"
+    db.query(sqlDelete, name, (err, result) => {
+        if(err) console.log(err);
+    })
+});
+
+app.put('/api/update', (req, res) => {
+    const name = req.params.movieName;
+    const sqlUpdate = "DELETE FROM movie_reviews WHERE movieName = ?;"
+    db.query(sqlUpdate, name, (err, result) => {
+        if(err) console.log(err);
+    })
 })
 
 // db.connect((err) => {
